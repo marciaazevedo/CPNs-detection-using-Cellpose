@@ -1,0 +1,34 @@
+{
+  "preprocessing": [],
+  "cellposeParameters": {
+    "n_epochs": "200",
+    "learning_rate": "0.05",
+    "batch_size": "2",
+    "diameter": "45.0"
+  },
+  "modelNameOrPath": "cyto2",
+  "channels": [
+    {
+      "channelName": "CTB"
+    }
+  ],
+  "cellExpansion": NaN,
+  "cellConstrainScale": NaN,
+  "ignoreCellOverlaps": false,
+  "pixelSize": NaN,
+  "tileWidth": 1024,
+  "tileHeight": 1024,
+  "globalPathClass": {},
+  "measureShape": false,
+  "constrainToParent": true,
+  "compartments": [
+    "NUCLEUS",
+    "CYTOPLASM",
+    "CELL",
+    "MEMBRANE"
+  ],
+  "simplifyDistance": 1.4,
+  "nThreads": -1,
+  "doReadResultsAsynchronously": false,
+  "useGPU": true
+}
