@@ -4,11 +4,13 @@ def cellpose = Cellpose2D.builder("cyto2")
                 .learningRate(0.05)       
                 .batchSize(2)
                 .diameter(45) 
+                .createAnnotations()
+       .build()
 
 def resultModel = cellpose.train()
 
 println "Model Saved under: "
-println resultModel.getAbsolutePath().toString().replace('\\', '/') // To make it easier to copy paste in windows
+println resultModel.getAbsolutePath().toString().replace('\\', '/') 
 
 def results = cellpose.getTrainingResults()
 results.show("Training Results")
