@@ -1,0 +1,21 @@
+def pathModel = "D:/CTB injections treino/Qupath cellpose empty 1/models/Custom_model_2024-08-13_01_42.cpm"
+def cellpose = Cellpose2D.builder( pathModel )
+        .pixelSize( 0.3 )                 
+        .channels( 'CTB' )	               
+        .diameter(45)                   
+        .measureIntensity()             
+        .build()
+
+
+def imageData = getCurrentImageData()
+def pathObjects = getSelectedObjects() // To process only selected annotations, useful while testing
+if (pathObjects.isEmpty()) {
+    Dialogs.showErrorMessage("Cellpose", "Please select a parent object!")
+    return
+}
+
+cellpose.detectObjects(imageData, pathObjects)
+
+println 'Cellpose detection script done'
+
+import qupath.ext.biop.cellpose.Cellpose2D
